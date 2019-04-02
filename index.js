@@ -17,10 +17,8 @@ const ACCOUNT_ACCESS_KEY = process.env.AZURE_STORAGE_ACCOUNT_ACCESS_KEY;
 const ONE_MINUTE = 60 * 1000;
 
 async function getBlobNames(aborter, containerURL) {
-
     let response;
     let marker;
-
     do {
         response = await containerURL.listBlobFlatSegment(aborter);
         marker = response.marker;
@@ -46,7 +44,8 @@ async function blobExists(aborter, containerURL, blobName) {
 async function execute() {
 
     const containerName = "logs";
-    const blobName = "my-second-log.log";
+    //note spaces not allowed in blob name, but uppercase allowed
+    const blobName = "My-Fourth-Log.log";
 
     const content = new Date().toString() + " I am a sample log line\r\n";
 
@@ -59,8 +58,9 @@ async function execute() {
     
     const aborter = Aborter.timeout(30 * ONE_MINUTE);
 
+    const exists = await blobExists(aborter, containerURL, blobName)
 
-    if ( !blobExists (aborter, containerURL, blobName) ) {
+    if (!exists) {
         await appendBlobURL.create(aborter, {ifNoneMatch: blobName})
         console.log(`Blob "${blobName}" does not exist. It was created for append.`);
     } else {
