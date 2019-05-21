@@ -1,3 +1,9 @@
+# Schwarrior's Azure Storage Quickstart for Logging
+
+Forked from Microsoft's Azure samples repo.
+
+Then editted down and adapted to just a few key abilities needed to do logging: file existence checks and file append.
+
 # Quickstart - JavaScript SDK v10 for Azure Storage
 
 This repository implements the [quickstart](http://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-nodejs-v10) sample for the [Azure Storage v10 SDK for JavaScript](https://github.com/Azure/azure-storage-js).
