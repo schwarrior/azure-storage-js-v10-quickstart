@@ -2,7 +2,10 @@
 
 Forked from Microsoft's Azure samples repo.
 
-Then editted down and adapted to just a few key abilities needed to do logging: file existence checks and file append.
+Added a file existence check (the original would only create or overwrite) and proved the ability to append to a text file. Editted out other sample methods.
+
+This project was early experimentation in what finally because the Azure Storage Log Manager. 
+https://github.com/schwarrior/azure-storage-log-manager-ts
 
 # Quickstart - JavaScript SDK v10 for Azure Storage
 
